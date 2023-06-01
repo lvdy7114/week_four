@@ -79,19 +79,8 @@ console.log(wordUpper);
 //Some
 //1. Find out if some numbers are divisible by 7.
 const divSeven = (num) => num % 7 === 0;
-console.log(nums.some(divSeven));
+console.log(nums.some(divSeven));  //true
 
 //2. Find out if some words have the letter a in them.
-console.log(Array.prototype.some.call(panagram, (x) => x === "lazy"));
+console.log(panagram.some(word => word.includes('a')));
 
-/*const tryAgain =  panagram.some(each => each.length === "a");
-    return tryAgain;
-
-function findTheA(element, index, array) {
-    for(let findA = 0; findA < panagram.length; findA++) {
-    return findA === 'a';
-    }
-    }
-console.log(panagram.some(findTheA));
-
-console.log(panagram.includes("lazy"));*/
