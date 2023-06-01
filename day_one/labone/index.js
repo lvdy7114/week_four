@@ -1,12 +1,7 @@
 //JavaScript Functions
-//In this lab, you'll be completing some challenges using JavaScript functions to test and reinforce your ability to:
-//Demonstrate the difference between function declarations and function expressions.
-//Create functions that solve a specific task.
 //Define and code 6 of the 10 functions below in the index.js file.
 //Define the functions using the approach as specified (either as a function expression or declaration).
-//Be sure to number each function with a comment above it corresponding to the numbers below.
-//After each function, call it at least once and console.log the results.
-//Submit the link to your CodeSandbox on Canvas when you are finished.
+
 
 // 1. Define a function, as a function declaration, maxOfTwoNumbers that takes two numbers as arguments 
 //and returns the largest of them. 
