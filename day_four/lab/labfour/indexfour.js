@@ -381,18 +381,40 @@ function getTwoLengths(string,string1) {
     return [string.length, string1.length]; 
 
 }
-console.log(getTwoLengths("Hank", "Hippopopalous"));
+console.log(getTwoLengths("Hank", "Hippopopalous")); //[4,13]
 
 /******F* getMultipleLengths 
 Write a function getMultipleLengths that accepts a single parameter as an argument: an array of strings. 
 The function should return an array of numbers where each number is the length of the corresponding string. 
 */
-function getMultipleLengths(count) {
+//first try /* 
+/* function getMultipleLengths(count) {
     for(let a = 0; a < count.length; a++) {
         return [count[a]];
     }
 }
-console.log(getMultipleLengths(["hello", "what", "is", "up", "dude"])); //come back
+console.log(getMultipleLengths(["hello", "what", "is", "up", "dude"])); //come back, just prints this line or 5
+
+//second try
+function getMultipleLengths(count) {
+    let greets = [];
+    for (let i = 0; i < arguments.length; i++) {
+        greets.push(arguments[i]);  
+        arguments[i].length;   
+    }
+    return count;
+}
+console.log(getMultipleLengths(["hello", "what", "is", "up", "dude"])); //should print out => [5, 4, 2, 2, 4]
+*/
+    //third try
+function getMultipleLengths(word) {
+    let greet1 = [];
+    for (element of word) {
+        greet1.push(element.length);
+    }
+    return greet1;
+}
+console.log(getMultipleLengths(["hello", "what", "is", "up", "dude"]));
 
 /*******G* maxOfThree
 Define a function maxOfThree that takes three numbers as arguments and returns the largest of them. 
@@ -408,15 +430,37 @@ const maxOfThree = function(s,m,l) {
       return s;
     }
   }
- console.log(maxOfThree(6, 9, 1));
+ console.log(maxOfThree(6, 9, 1)); //9
 
  /********H. printLongestWord
 Write a function printLongestWord that accepts a single argument, an array of strings. 
 The method should return the longest word in the array. In case of a tie, the method should return the word that appears 
 first in the array.
  */
-//come back 
-//console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "Todd"]));
+//first try
+/*function printLongestWord(long) {
+    let longestWord = [];
+    for (let i = 0; i < long.length; i++) {
+        if(long[i].length > long[longestWord]) {
+            return long;
+        } 
+}
+}*/
+//second try
+function printLongestWord(find) {
+    let longestWord = " ";
+
+    find.forEach(function(word) {
+        if(word.length > longestWord.length) {
+            longestWord = word;
+        }
+    });
+    return longestWord;
+}
+ 
+
+//should return => "Peanutbutter"
+console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "Todd"]));
 
 ///////V.Objects//////
 //Let's set up an object data structure. 
