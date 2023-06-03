@@ -144,25 +144,24 @@ for (let t = 0; t <= 100; t++) {
 }
 
 /****D* Savings Account
-Write code that will save the sum of all the numbers between 1 - 10 to a variable called bank_account.
-Check your work! Your bank_account should have $55 in it.
-You got a bonus! Your pay is now doubled each week. 
-Write code that will save the sum of all the numbers between 1 - 100 multiplied by 2.
-Check your work! Your bank_account should have $10,100 in it. 
 */
-//
+//Write code that will save the sum of all the numbers between 1 - 10 to a variable called bank_account.
+//Check your work! Your bank_account should have $55 in it.
 let bank_account = 0;
 for (let m = 1; m <= 10; m++) {
     bank_account += m;
 }
 console.log('$' + bank_account); //$55
 
+/*You got a bonus! Your pay is now doubled each week. 
+Write code that will save the sum of all the numbers between 1 - 100 multiplied by 2.
+Check your work! Your bank_account should have $10,100 in it. */
+bank_account = 0;
 for (let b = 1; b <= 100; b++) {
-    bank_account += b;
-    bonus = b * 2;
-    sum = bonus + bank_account;
+    bank_account += b * 2;
+    
 }
-console.log('$' + sum); //come back it says 5305, not 10,100
+console.log('$' + bank_account); //prints 10,100 *finally!*
 
 /* /////////III. Arrays & Control flow///////////////
 Next, we'll revist arrays and control statements.
