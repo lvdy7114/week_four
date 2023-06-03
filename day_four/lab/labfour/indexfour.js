@@ -154,16 +154,15 @@ Check your work! Your bank_account should have $10,100 in it.
 let bank_account = 0;
 for (let m = 1; m <= 10; m++) {
     bank_account += m;
-    console.log('$' + bank_account);
 }
+console.log('$' + bank_account); //$55
 
 for (let b = 1; b <= 100; b++) {
     bank_account += b;
     bonus = b * 2;
     sum = bonus + bank_account;
-    console.log('$' + sum);
 }
-//come back it says 5305, not 10,100
+console.log('$' + sum); //come back it says 5305, not 10,100
 
 /* /////////III. Arrays & Control flow///////////////
 Next, we'll revist arrays and control statements.
@@ -314,8 +313,9 @@ console.log('Thom is looking fierce in a ' + thomsCloset[0][0] + ', ' + thomsClo
 //8. Get more specific about what kind of PJs Thom is wearing this winter. Modify the name of his PJ pants to Footie Pajamas.
   console.log(thomsCloset[1][2]); //PJ's
   console.log(thomsCloset);
-//says undefined.  thomsCloset.splice(1,2,1, 'Footie Pajamas'); come back. 
-  
+  thomsCloset[1][2] = 'Footie Pajamas';
+  console.log(thomsCloset);
+
 /* /////////IV. Functions///////////////
 *A* printGreeting
 Write a function called printGreeting with a parameter name that returns a greeting with the argument 
@@ -416,6 +416,7 @@ The method should return the longest word in the array. In case of a tie, the me
 first in the array.
  */
 //come back 
+//console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "Todd"]));
 
 ///////V.Objects//////
 //Let's set up an object data structure. 
@@ -498,11 +499,18 @@ user.friend1.purchased.push('A latte');
 console.log(user.friend1.purchased[1]);
 
 /******F* Loops
-Write a for loop that iterates over the User's purchased array (NOT the friend's purchased array), 
-and prints each element to the console.
-Write a for loop that iterates over the Friend's purchased array, and prints each element to the console.
 */
-//come back
+//Write a for loop that iterates over the User's purchased array (NOT the friend's purchased array), 
+//and prints each element to the console.
+for(each of user.purchased) {
+    console.log(each);
+}
+console.log(user.purchased);
+
+//Write a for loop that iterates over the Friend's purchased array, and prints each element to the console.
+for(each of user.friend1.purchased) {
+    console.log(each);
+}
 
 /*******G* Functions Operating on Objects
 Write a single function updateUser that takes no parameters. When the function is run, it should:
@@ -513,7 +521,7 @@ The function does not need a return statement, it will merely modify the user ob
 
 function updateUser() {
     user.age++;
-    user.name.toUpperCase();  //not uppercasing, come back
+    user.name = user.name.toUpperCase(); 
 }
 updateUser(user.age,user.name);
 console.log(user.age, user.name);
@@ -523,8 +531,10 @@ but instead of hard-coding it to only work on our user object, make it take a pa
 and have it modify the object that is passed in as an argument when the function is called. 
 Call your oldAndLoud function with user as the argument.*/
 
-function oldAndLoud() {
-    
+function oldAndLoud(person) {
+    person.age++;
+    person.name = person.name.toUpperCase();
 
 }
-//come back
+oldAndLoud(user);
+console.log(user.age,user.name);
