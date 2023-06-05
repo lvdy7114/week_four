@@ -167,8 +167,8 @@ class Animal {
     console.log(sound);
   }
   toString(animal = 'Animal') {
-    return `This ${animal} has ${this.eyes} eyes and ${this.legs} legs with ${[this.hair, this.fur]} hair color. It ${this.isAwake ? 'is' : 'is not'} awake, 
-    and ${this.isMoving ? 'is' : 'is not'} moving.`;
+    return `This ${animal} has ${this.eyes} eyes and ${this.legs} legs with ${[this.hair, this.fur]} hair color. I ${this.isAwake ? 'am' : 'am not'} awake, 
+    and I ${this.isMoving ? 'am' : 'am not'} moving.`;
   }
 }
 
@@ -281,3 +281,31 @@ Funny fact:
 This Human has 2 eyes and 2 legs with blonde, hair color. It is awake,
     and is moving.
 */
+/*
+Encapsulation is the ability for an object to decide what information is shows to the outside world and 
+what information it keeps to itself. It also encourages methods that specify how certain properties are 
+accessed or modified. In order to implement encapsulation, we need public and private properties and methods. 
+In JavaScript, all object properties and methods are public by default, which means they can be accessed 
+from outside of the object itself. 
+Private properties, on the other hand, cannot be accessed externally. In order to create a private property, 
+we must declare it using the # symbol at the top of the class definition (outside of the constructor). 
+These declarations are called "hash names," since they use the hash prefix #. Legacy code has _
+Attempting to access the private properties them will result in a SyntaxError.  Now that it's 
+inaccessible, let's provide controlled access using methods called getters and setters. 
+Getters and setters do exactly what they sound like they do - get and set specific data. 
+In order to create getters and setters, we use the get and set keywords.
+In OOP, we use getters and setters to control exactly how specific data is accessed, modified, or deleted
+so that our objects behave predictably.  Encapsulation helps prevent bugs.
+When creating objects, it's important to note that not every field needs a getter and/or a setter. 
+If we did not need the ability to change a learner's name or age, for example, we could forgo those setters
+and simply create getters 
+*/
+
+/*Object factory -A factory function is a function that returns an object. By creating objects with factories, 
+we avoid the use of the new keyword. Generally speaking, factories are wonderful for creating copies of simple objects, 
+but lose out on much of the flexibility of working with classes as complexity increases.
+Objects created by factories also do not benefit from the prototype chain, as they are simple objects.
+Here's an example factory function, and how it could be written with a constructor function instead:
+*/
+
+
