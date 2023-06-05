@@ -308,4 +308,127 @@ Objects created by factories also do not benefit from the prototype chain, as th
 Here's an example factory function, and how it could be written with a constructor function instead:
 */
 
+/*Static Properties and Methods. So far, we've been instantiating all of our examples in order to work with them, 
+but we know from experience that this is not always necessary. The Math.random() method, which we have mentioned before, 
+does not require an instance of the Math class in order to be called. Similarly, the property Math.PI can be accessed 
+without instantiation. These are called "static" properties and methods.
 
+Static methods are often used to create utility functions that perform actions that are independant of the state of an 
+individual object.
+Static properties are useful for caches, fixed-configuration values, or other data that does not need to be replicated 
+across each instance of the class's objects.
+What kind of static properties and methods could we add to our example classes? Remember, static features need to be 
+independant of the state of individual objects.
+Let's look at a more practical example. Say that we wanted to get the average of a set of grades without needing to 
+instantiate a Learner object and assign all of the grades to that specific learner. Let's create a Grades class with a 
+single static method that will look very familiar:
+*/
+class Grades {
+  static getAverage(...grades) {
+    const arr = [];
+
+    grades = grades.flat();
+    grades.forEach((grade) => {
+      grade = Number(grade);
+
+      if (grade >= 0 && grade <= 100) {
+        arr.push(grade);
+      }
+    });
+    
+    arr.sort((a, b) => a - b).shift();
+
+    return arr.reduce((a, b) => a + b) / arr.length;
+  }
+}
+//Now we can use Grades.getAverage() to calculate the average of an arbitrary list of grades without instantiating 
+//or affecting the state of any Learner objects.
+
+/*We could take this example one step further - what if you continued to expand the Grades class such that it had 
+its own constructor, private array of grades, getters, and setters? We could then remove all of this logic from our 
+Learner class and instead instantiate a Grades object within the Learner class in order to hold and interact with that 
+data.
+What would be the benefits of doing this? What are the downsides?
+Here's what that might look like:
+*/
+class Learner {
+  #grades;
+  #name = {
+    first: "",
+    last: ""
+  };
+  #age;
+
+  constructor(firstName, lastName, age) {
+    this.#name.first = firstName;
+    this.#name.last = lastName;
+    this.#age = age;
+
+    this.#grades = new Grades();
+  }
+  get name() {
+    return this.#name.first + " " + this.#name.last;
+  }
+  get age() {
+    return this.#age;
+  }
+  addGrades(...grades) {
+    this.#grades.addGrades(grades);
+  }
+  get grades() {
+    return this.#grades.grades;
+  }
+  get average() {
+    return this.#grades.average;
+  }
+}
+
+class Grades {
+  #grades = [];
+
+  constructor(initialGrades) {
+    if (initialGrades) {
+      this.addGrades(initialGrades);
+    }
+  }
+  static getAverage(...grades) {
+    const arr = [];
+    this.addToArray(arr, grades);
+    return this.avgArray(arr);
+  }
+  static addToArray(arr, grades) {
+    grades = grades.flat();
+    grades.forEach((grade) => {
+      grade = Number(grade);
+
+      if (grade >= 0 && grade <= 100) {
+        arr.push(grade);
+      }
+    });
+  }
+  static avgArray(gradeArray) {
+    const arr = [...gradeArray];
+    arr.sort((a, b) => a - b).shift();
+
+    return arr.reduce((a, b) => a + b) / arr.length;
+  }
+  addGrades(...grades) {
+    Grades.addToArray(this.#grades, grades.flat());
+  }
+  get grades() {
+    return this.#grades;
+  }
+  get average() {
+    return Grades.avgArray(this.#grades);
+  }
+}
+
+/*
+Take a few minutes to analyze the changes made to these two classes, and try to determine the reasoning behind 
+each of them. Copy the code and test it for yourself to see how the functionality may have changed or expanded.
+While this may or may not seem practical, it does demonstrate a very common occurence in development. 
+You will often be given tools like packages, modules, and classes that already handle some of the functionality 
+you are looking to implement, but you need to integrate them with your own work. In the above example, 
+if we were given the Grades class and told how its methods worked, it would certainly inform our decision-making process 
+when creating the Learner class, since there would be no reason to recreate those methods from scratch.
+*/

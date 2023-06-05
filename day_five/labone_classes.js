@@ -68,7 +68,6 @@ for (let i=0; i < jollyRoger.length; i++) {
 }
 
 for(let j= 0; j < blackPearl.length; j++ ) {
-  console.log(blackPearl[j].intro() + blackPearl[j].status() + blackPearl[j].speak());
+ blackPearl[j].intro() + blackPearl[j].status() + blackPearl[j].speak();
 }
 
-//still returns NaN after looping.. need to research
