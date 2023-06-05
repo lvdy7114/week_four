@@ -51,22 +51,24 @@ class Pirate {
   intro() {
     console.log(`My name is ${this.name} and I am ${this.age} years old.  I am currently sailing on the ${this.location}.`);
   }
-  speak() {
-      console.log(`${this.name} is the captain of this ship`);
+  status() {
+      console.log(`${this.name} is a pirate.`);
   }
-  toString(pirate = 'Pirate') {
-      return `${this.name} is a ${pirate}.`;
+  speak() {
+      console.log(`${this.name} says ahoy mate!`);
     }
 }
 
-const jollyRoger = [new Pirate ('Captain Sparrow', 35, 'Atlantic Ocean'), new Pirate('Captain Manih', 31, 'Pacific Ocean'), new Pirate('Captain Pelle', 31, 'Baltic Ocean')];
-const blackPearl = [new Pirate('Captain Manji', 32, 'Indian Ocean'), new Pirate('Captain Storm', 38, 'Artic Ocean'), new Pirate('Captain Ice', 39, 'North Pacific Ocean') ];
+const jollyRoger = [new Pirate ('Sparrow', 35, 'Pacific Ocean'), new Pirate('Manih', 31, 'Pacific Ocean'), new Pirate('Pelle', 31, 'Pacific Ocean')];
+const blackPearl = [new Pirate('Manji', 32, 'Atlantic Ocean'), new Pirate('Storm', 38, 'Atlantic Ocean'), new Pirate('Ice', 39, 'Atlantic Ocean') ];
 
 //loop over three properties for each array
 for (let i=0; i < jollyRoger.length; i++) {
-	console.log(jollyRoger[i].intro() + jollyRoger[i].speak() + jollyRoger[i].toString());
+	console.log(jollyRoger[i].intro() + jollyRoger[i].status() + jollyRoger[i].speak());
 }
 
 for(let j= 0; j < blackPearl.length; j++ ) {
-  console.log(blackPearl[j].intro() + blackPearl[j].speak() + blackPearl[j].toString());
+  console.log(blackPearl[j].intro() + blackPearl[j].status() + blackPearl[j].speak());
 }
+
+//still returns NaN after looping.. need to research
