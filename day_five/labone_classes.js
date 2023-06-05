@@ -52,22 +52,21 @@ class Pirate {
     console.log(`My name is ${this.name} and I am ${this.age} years old.  I am currently sailing on the ${this.location}.`);
   }
   speak() {
-      console.log(`${this.name} is the captain of this ship`)
+      console.log(`${this.name} is the captain of this ship`);
   }
   toString(pirate = 'Pirate') {
       return `${this.name} is a ${pirate}.`;
     }
 }
 
-const jollyRoger = new Pirate('Captain Sparrow', 35, 'Atlantic Ocean');
-const blackPearl = new Pirate('Captain Manih', 31, 'Pacific Ocean');
+const jollyRoger = [new Pirate ('Captain Sparrow', 35, 'Atlantic Ocean'), new Pirate('Captain Manih', 31, 'Pacific Ocean'), new Pirate('Captain Pelle', 31, 'Baltic Ocean')];
+const blackPearl = [new Pirate('Captain Manji', 32, 'Indian Ocean'), new Pirate('Captain Storm', 38, 'Artic Ocean'), new Pirate('Captain Ice', 39, 'North Pacific Ocean') ];
 
-jollyRoger.intro();
-jollyRoger.speak();
-console.log(jollyRoger.toString());
+//loop over three properties for each array
+for (let i=0; i < jollyRoger.length; i++) {
+	console.log(jollyRoger[i].intro() + jollyRoger[i].speak() + jollyRoger[i].toString());
+}
 
-blackPearl.intro();
-blackPearl.speak();
-console.log(blackPearl.toString());
-
-//trying to figure out how to instantiate an array and loop it over three properties
+for(let j= 0; j < blackPearl.length; j++ ) {
+  console.log(blackPearl[j].intro() + blackPearl[j].speak() + blackPearl[j].toString());
+}
