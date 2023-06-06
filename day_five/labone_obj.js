@@ -136,9 +136,14 @@ class Character {
 	smite () {
 	  console.log('I smite thee you vile person!');
 	}
+	//method of an action and is repetitive
+	walk() {
+		console.log(`${this.name} walks.`)
+	}
   }
   const you = new Character('Cathy the Miraculous', 29, 'brown', 'locs of dark brown', true, true);
   const me = new Character('Wendel the Wavy', 32, 'brown', 'wavy blonde');
+  you.walk() + me.walk();
   
   me.classyGreeting(you);
   you.classyGreeting(me);
@@ -280,7 +285,6 @@ gandalf.generateTome('Dark');
 console.log(gandalf);
 console.log(gandalf.findTome(0));
 
-//Will work on this if time allows
 /*Going Forward - Use the information and examples provided thus far to expand your game of Objects and Orcs!
 To give you some ideas of what you could accomplish, try to:
 Add additional classes to handle repetitive objects.
@@ -293,3 +297,20 @@ Explore and discover!
 The possibilities are nearly endless. If you've run out of time for this lab, feel free to return later and continue
  your adventure!
 */
+
+ //Inventories class
+ class Inventories {
+	constructor(items) {
+	this.items = items;
+	}
+	add() {
+		return this.items;
+	}
+	
+ }
+
+ const inventory = new Inventories(['medicine', 'herbs']);
+
+ inventory.add();
+ console.log(inventory);
+
